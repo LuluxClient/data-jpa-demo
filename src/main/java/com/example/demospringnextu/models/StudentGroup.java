@@ -1,6 +1,7 @@
 package com.example.demospringnextu.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.Entity;
@@ -33,6 +34,7 @@ public class StudentGroup {
 
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "studentGroup")
     @JsonManagedReference(value = "studentGroup")
     private List<Student> students;
