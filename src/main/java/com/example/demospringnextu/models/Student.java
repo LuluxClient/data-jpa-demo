@@ -37,4 +37,6 @@ public class Student {
     @ManyToOne
     @JoinColumn(name = "studentGroupId")
     private StudentGroup studentGroup;
+
+    private Integer age;
 }
