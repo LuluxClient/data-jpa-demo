@@ -1,16 +1,9 @@
 package com.example.demospringnextu.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,25 +18,31 @@ import java.util.List;
 @Entity
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "studentGroupId")
-public class StudentGroup {
+        property = "professorId")
+public class Professor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer studentGroupId;
+    private Integer professorId;
 
     private String name;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "studentGroup")
-    @JsonManagedReference(value = "studentGroup")
-    private List<Student> students;
+    private String firstName;
+
+    private String mail;
+
+    private String subject;
 
     @ManyToOne
     @JoinColumn(name = "schoolId")
     private School school;
 
-    @OneToMany(mappedBy = "studentGroup")
-    @JsonManagedReference(value = "courseStudentGroup")
+    @OneToMany(mappedBy = "professor")
+    @JsonManagedReference(value = "courseProfessor")
     private List<Course> courses;
 }
+
+
+
+// Ajouter les professeurs : un professeur est relié à une école, une école a plusieurs professeurs
+// Un professeur a un id, un nom, un prenom, un mail et une matière (type String) et donne des cours

@@ -35,4 +35,10 @@ public class School {
     @OneToMany(mappedBy = "school")
     @JsonManagedReference(value = "school")
     private List<StudentGroup> groups;
+
+    @OneToMany(mappedBy = "school")
+    @JsonManagedReference(value = "school")
+    private List<Professor> professors;
 }
+
+//une école, une école a plusieurs professeurs
