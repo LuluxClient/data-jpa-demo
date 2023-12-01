@@ -6,5 +6,4 @@ import java.util.List;
 
 public interface ProfessorRepository extends JpaRepository<Professor, Integer> {
     List<Professor> findByNameContaining(String search);
-    List<Professor> findBySubject(String subject);
 }
