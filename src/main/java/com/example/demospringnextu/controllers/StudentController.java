@@ -64,7 +64,7 @@ public class StudentController {
 
     // MEGA BONUS: Où stockons nous les notes des étudiants à un cours ?
     // Faire un service pour insérer la note d'un étudiant à un cours
-
+ 
     // Mon mail : florian@jetdev.fr
     // Mon Discord : jetflo
     
